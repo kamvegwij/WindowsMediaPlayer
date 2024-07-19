@@ -6,62 +6,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>847</width>
-    <height>424</height>
+    <width>522</width>
+    <height>504</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: navy;</string>
+   <string notr="true">background-color: #485460;
+
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="play_button">
-    <property name="geometry">
-     <rect>
-      <x>340</x>
-      <y>310</y>
-      <width>71</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-border: 2px solid white;
-border-radius: 15px;
-color: white;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="stop_button">
-    <property name="geometry">
-     <rect>
-      <x>440</x>
-      <y>310</y>
-      <width>71</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-border: 2px solid white;
-border-radius: 15px;
-color: white;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLabel" name="song_title_lbl">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>0</y>
-      <width>841</width>
-      <height>61</height>
+      <width>521</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -72,20 +36,40 @@ color: white;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent; color: white;</string>
+     <string notr="true">background-color: #34e7e4;
+border: 1px solid #d2dae2;
+color: #1e272e;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
     </property>
     <property name="text">
-     <string>SONG_TITLE_NAME</string>
+     <string>NO SONG PLAYING</string>
     </property>
    </widget>
    <widget class="QSlider" name="volume_slider">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>330</y>
-      <width>271</width>
+      <x>370</x>
+      <y>420</y>
+      <width>131</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSlider::groove:horizontal{
+	height: 5px;
+	width: 150px;
+	border-radius: 10px;
+	background: #d2dae2;
+}
+QSlider::handle:horizontal{
+	height: 25px;
+	width: 25px;
+	margin: -2px -2px;
+	border-radius: 10px;
+	background: #ffc048;
+}</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -94,8 +78,8 @@ color: white;</string>
    <widget class="QLabel" name="min_volume_lbl">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>350</y>
+      <x>370</x>
+      <y>440</y>
       <width>21</width>
       <height>20</height>
      </rect>
@@ -107,7 +91,7 @@ color: white;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;</string>
+     <string notr="true">color: #d2dae2;</string>
     </property>
     <property name="text">
      <string>0</string>
@@ -116,8 +100,8 @@ color: white;</string>
    <widget class="QLabel" name="max_volume_lbl">
     <property name="geometry">
      <rect>
-      <x>780</x>
-      <y>350</y>
+      <x>470</x>
+      <y>440</y>
       <width>41</width>
       <height>20</height>
      </rect>
@@ -129,7 +113,7 @@ color: white;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;</string>
+     <string notr="true">color: #d2dae2;</string>
     </property>
     <property name="text">
      <string>100</string>
@@ -138,18 +122,142 @@ color: white;</string>
    <widget class="QSlider" name="song_progress_slider">
     <property name="geometry">
      <rect>
-      <x>-1</x>
-      <y>260</y>
-      <width>841</width>
+      <x>0</x>
+      <y>370</y>
+      <width>511</width>
       <height>22</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;</string>
+     <string notr="true">QSlider::groove:horizontal{
+	height: 2px;
+	width: 500px;
+	border-radius: 10px;
+	background: #d2dae2;
+}
+QSlider::handle:horizontal{
+	height: 15px;
+	width: 15px;
+	margin: -2px -2px;
+	border-radius: 10px;
+	background: #ff3f34;
+}</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>410</y>
+      <width>261</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="audio_button_layout">
+     <item>
+      <widget class="QPushButton" name="repeat_button">
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #d2dae2;
+border-radius: 15px;
+color: white;
+width: 40px;
+height: 40px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="stop_button">
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #d2dae2;
+border-radius: 15px;
+color: white;
+width: 40px;
+height: 40px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="backward_button">
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #d2dae2;
+border-radius: 15px;
+color: white;
+width: 40px;
+height: 40px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="play_button">
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #d2dae2;
+border-radius: 15px;
+color: white;
+width: 40px;
+height: 40px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="forward_button">
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #d2dae2;
+border-radius: 15px;
+color: white;
+width: 40px;
+height: 40px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -157,7 +265,7 @@ color: white;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>847</width>
+     <width>522</width>
      <height>24</height>
     </rect>
    </property>
@@ -168,20 +276,42 @@ color: white;</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: darkgrey; 
-color: black;</string>
+    <string notr="true">background-color: #485460; 
+color: #d2dae2;</string>
    </property>
    <widget class="QMenu" name="menuBrowse">
+    <property name="font">
+     <font>
+      <pointsize>7</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string>Browse</string>
     </property>
     <addaction name="actionOpen_Files"/>
    </widget>
+   <widget class="QMenu" name="menuAssistant">
+    <property name="title">
+     <string>Assistant</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+   </widget>
    <addaction name="menuBrowse"/>
+   <addaction name="menuAssistant"/>
+   <addaction name="menuHelp"/>
   </widget>
   <action name="actionOpen_Files">
    <property name="text">
     <string>Open Files</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
    </property>
    <property name="menuRole">
     <enum>QAction::NoRole</enum>

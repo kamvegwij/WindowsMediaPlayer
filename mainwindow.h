@@ -6,6 +6,8 @@
 #include "QtMultimedia"
 #include "QStyle"
 #include "QMediaPlayer"
+#include "QtCore"
+#include "QtWidgets"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -28,6 +30,12 @@ private slots:
     void on_actionOpen_Files_triggered();
 
     void on_volume_slider_valueChanged(int value);
+
+    void on_repeat_button_clicked();
+
+    void on_backward_button_clicked();
+
+    void on_forward_button_clicked();
 
 private:
     Ui::MainWindow *ui;

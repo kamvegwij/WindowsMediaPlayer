@@ -9,6 +9,9 @@ MainWindow::MainWindow(QWidget *parent)
     m_player = new QMediaPlayer;
     ui->play_button->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
     ui->stop_button->setIcon(style()->standardIcon(QStyle::SP_MediaStop));
+    ui->backward_button->setIcon(style()->standardIcon(QStyle::SP_MediaSeekBackward));
+    ui->forward_button->setIcon(style()->standardIcon(QStyle::SP_MediaSeekForward));
+    ui->repeat_button->setIcon(style()->standardIcon(QStyle::SP_BrowserReload));
 
     audioOutput = new QAudioOutput();
     m_player->setAudioOutput(audioOutput);
@@ -57,5 +60,23 @@ void MainWindow::on_volume_slider_valueChanged(int value)
 {
 
     audioOutput->setVolume(value);
+}
+
+
+void MainWindow::on_repeat_button_clicked()
+{
+
+}
+
+
+void MainWindow::on_backward_button_clicked()
+{
+
+}
+
+
+void MainWindow::on_forward_button_clicked()
+{
+
 }
 
