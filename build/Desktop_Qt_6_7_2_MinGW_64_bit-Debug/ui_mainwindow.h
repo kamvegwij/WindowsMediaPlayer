@@ -35,6 +35,7 @@ public:
     QSlider *song_progress_slider;
     QWidget *widget;
     QHBoxLayout *audio_button_layout;
+    QPushButton *mute_button;
     QPushButton *repeat_button;
     QPushButton *stop_button;
     QPushButton *backward_button;
@@ -122,15 +123,26 @@ public:
         song_progress_slider->setOrientation(Qt::Horizontal);
         widget = new QWidget(centralwidget);
         widget->setObjectName("widget");
-        widget->setGeometry(QRect(100, 410, 261, 48));
+        widget->setGeometry(QRect(80, 410, 277, 48));
         audio_button_layout = new QHBoxLayout(widget);
         audio_button_layout->setObjectName("audio_button_layout");
         audio_button_layout->setContentsMargins(0, 0, 0, 0);
-        repeat_button = new QPushButton(widget);
-        repeat_button->setObjectName("repeat_button");
+        mute_button = new QPushButton(widget);
+        mute_button->setObjectName("mute_button");
         QFont font3;
         font3.setPointSize(20);
         font3.setBold(true);
+        mute_button->setFont(font3);
+        mute_button->setStyleSheet(QString::fromUtf8("background-color: #d2dae2;\n"
+"border-radius: 15px;\n"
+"color: white;\n"
+"width: 40px;\n"
+"height: 40px;"));
+
+        audio_button_layout->addWidget(mute_button);
+
+        repeat_button = new QPushButton(widget);
+        repeat_button->setObjectName("repeat_button");
         repeat_button->setFont(font3);
         repeat_button->setStyleSheet(QString::fromUtf8("background-color: #d2dae2;\n"
 "border-radius: 15px;\n"
@@ -220,6 +232,7 @@ public:
         song_title_lbl->setText(QCoreApplication::translate("MainWindow", "NO SONG PLAYING", nullptr));
         min_volume_lbl->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         max_volume_lbl->setText(QCoreApplication::translate("MainWindow", "100", nullptr));
+        mute_button->setText(QString());
         repeat_button->setText(QString());
         stop_button->setText(QString());
         backward_button->setText(QString());

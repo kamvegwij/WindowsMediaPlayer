@@ -37,6 +37,8 @@ private slots:
 
     void on_forward_button_clicked();
 
+    void on_mute_button_clicked();
+
 private:
     Ui::MainWindow *ui;
     QMediaPlayer *m_player;

@@ -150,13 +150,33 @@ QSlider::handle:horizontal{
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>80</x>
       <y>410</y>
-      <width>261</width>
+      <width>277</width>
       <height>48</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="audio_button_layout">
+     <item>
+      <widget class="QPushButton" name="mute_button">
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #d2dae2;
+border-radius: 15px;
+color: white;
+width: 40px;
+height: 40px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
      <item>
       <widget class="QPushButton" name="repeat_button">
        <property name="font">

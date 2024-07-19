@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->backward_button->setIcon(style()->standardIcon(QStyle::SP_MediaSeekBackward));
     ui->forward_button->setIcon(style()->standardIcon(QStyle::SP_MediaSeekForward));
     ui->repeat_button->setIcon(style()->standardIcon(QStyle::SP_BrowserReload));
+    ui->mute_button->setIcon(style()->standardIcon(QStyle::SP_MediaVolume));
 
     audioOutput = new QAudioOutput();
     m_player->setAudioOutput(audioOutput);
@@ -38,10 +39,9 @@ void MainWindow::on_play_button_clicked()
     }
 
 }
-
-
 void MainWindow::on_stop_button_clicked()
 {
+    ui->play_button->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
     m_player->stop();
 }
 
@@ -78,5 +78,18 @@ void MainWindow::on_backward_button_clicked()
 void MainWindow::on_forward_button_clicked()
 {
 
+}
+
+
+void MainWindow::on_mute_button_clicked()
+{
+    bool bAudioMuted = audioOutput->isMuted();
+    audioOutput->setMuted(!bAudioMuted);
+
+    bAudioMuted
+        ?
+        ui->mute_button->setIcon(style()->standardIcon(QStyle::SP_MediaVolume))
+        :
+        ui->mute_button->setIcon(style()->standardIcon(QStyle::SP_MediaVolumeMuted));
 }
 
