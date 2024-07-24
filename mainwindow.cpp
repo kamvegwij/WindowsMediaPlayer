@@ -48,7 +48,7 @@ void MainWindow::on_stop_button_clicked()
 
 void MainWindow::on_actionOpen_Files_triggered()
 {
-    QString FileName = QFileDialog::getOpenFileName(this, tr("Select Audio File"),"",tr("MP3 Files (*.MP3)"));
+    QString FileName = QFileDialog::getOpenFileName(this, tr("Select Audio File"),"",tr("Files (*.MP3, *.M4A, *.WAV)"));
     m_player->setSource(QUrl(FileName));
 
     QFileInfo File(FileName);
