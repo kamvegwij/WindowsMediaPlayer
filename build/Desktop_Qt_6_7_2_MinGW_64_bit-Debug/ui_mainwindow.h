@@ -33,14 +33,16 @@ public:
     QLabel *min_volume_lbl;
     QLabel *max_volume_lbl;
     QSlider *song_progress_slider;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *audio_button_layout;
-    QPushButton *mute_button;
     QPushButton *repeat_button;
     QPushButton *stop_button;
     QPushButton *backward_button;
     QPushButton *play_button;
     QPushButton *forward_button;
+    QPushButton *mute_button;
+    QLabel *song_start_time_label;
+    QLabel *song_end_time_label;
     QMenuBar *menubar;
     QMenu *menuBrowse;
     QMenu *menuAssistant;
@@ -50,7 +52,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(522, 504);
+        MainWindow->resize(521, 504);
         MainWindow->setStyleSheet(QString::fromUtf8("background-color: #485460;\n"
 "\n"
 ""));
@@ -76,7 +78,7 @@ public:
         song_title_lbl->setFrameShape(QFrame::Panel);
         volume_slider = new QSlider(centralwidget);
         volume_slider->setObjectName("volume_slider");
-        volume_slider->setGeometry(QRect(370, 420, 131, 22));
+        volume_slider->setGeometry(QRect(360, 420, 161, 22));
         volume_slider->setStyleSheet(QString::fromUtf8("QSlider::groove:horizontal{\n"
 "	height: 5px;\n"
 "	width: 150px;\n"
@@ -86,7 +88,6 @@ public:
 "QSlider::handle:horizontal{\n"
 "	height: 25px;\n"
 "	width: 25px;\n"
-"	margin: -2px -2px;\n"
 "	border-radius: 10px;\n"
 "	background: #ffc048;\n"
 "}"));
@@ -96,7 +97,7 @@ public:
         min_volume_lbl->setGeometry(QRect(370, 440, 21, 20));
         QFont font2;
         font2.setFamilies({QString::fromUtf8("MS Reference Sans Serif")});
-        font2.setBold(true);
+        font2.setBold(false);
         min_volume_lbl->setFont(font2);
         min_volume_lbl->setStyleSheet(QString::fromUtf8("color: #d2dae2;"));
         max_volume_lbl = new QLabel(centralwidget);
@@ -106,7 +107,7 @@ public:
         max_volume_lbl->setStyleSheet(QString::fromUtf8("color: #d2dae2;"));
         song_progress_slider = new QSlider(centralwidget);
         song_progress_slider->setObjectName("song_progress_slider");
-        song_progress_slider->setGeometry(QRect(0, 370, 511, 22));
+        song_progress_slider->setGeometry(QRect(10, 350, 511, 22));
         song_progress_slider->setStyleSheet(QString::fromUtf8("QSlider::groove:horizontal{\n"
 "	height: 2px;\n"
 "	width: 500px;\n"
@@ -114,96 +115,148 @@ public:
 "	background: #d2dae2;\n"
 "}\n"
 "QSlider::handle:horizontal{\n"
-"	height: 15px;\n"
-"	width: 15px;\n"
-"	margin: -2px -2px;\n"
+"	height: 25px;\n"
+"	width: 25px;\n"
 "	border-radius: 10px;\n"
 "	background: #ff3f34;\n"
 "}"));
         song_progress_slider->setOrientation(Qt::Horizontal);
-        widget = new QWidget(centralwidget);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(80, 410, 277, 48));
-        audio_button_layout = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(80, 410, 277, 48));
+        audio_button_layout = new QHBoxLayout(layoutWidget);
         audio_button_layout->setObjectName("audio_button_layout");
         audio_button_layout->setContentsMargins(0, 0, 0, 0);
-        mute_button = new QPushButton(widget);
-        mute_button->setObjectName("mute_button");
+        repeat_button = new QPushButton(layoutWidget);
+        repeat_button->setObjectName("repeat_button");
         QFont font3;
         font3.setPointSize(20);
         font3.setBold(true);
-        mute_button->setFont(font3);
-        mute_button->setStyleSheet(QString::fromUtf8("background-color: #d2dae2;\n"
-"border-radius: 15px;\n"
-"color: white;\n"
-"width: 40px;\n"
-"height: 40px;"));
-
-        audio_button_layout->addWidget(mute_button);
-
-        repeat_button = new QPushButton(widget);
-        repeat_button->setObjectName("repeat_button");
         repeat_button->setFont(font3);
-        repeat_button->setStyleSheet(QString::fromUtf8("background-color: #d2dae2;\n"
+        repeat_button->setStyleSheet(QString::fromUtf8("QPushButton\n"
+"{\n"
+"background-color: #d2dae2;\n"
 "border-radius: 15px;\n"
 "color: white;\n"
 "width: 40px;\n"
-"height: 40px;"));
+"height: 40px;\n"
+"}\n"
+"QPushButton:Hover\n"
+"{\n"
+"	background-color: #34e7e4;\n"
+"}"));
 
         audio_button_layout->addWidget(repeat_button);
 
-        stop_button = new QPushButton(widget);
+        stop_button = new QPushButton(layoutWidget);
         stop_button->setObjectName("stop_button");
         stop_button->setFont(font3);
-        stop_button->setStyleSheet(QString::fromUtf8("background-color: #d2dae2;\n"
+        stop_button->setStyleSheet(QString::fromUtf8("QPushButton\n"
+"{\n"
+"background-color: #d2dae2;\n"
 "border-radius: 15px;\n"
 "color: white;\n"
 "width: 40px;\n"
-"height: 40px;"));
+"height: 40px;\n"
+"}\n"
+"QPushButton:Hover\n"
+"{\n"
+"	background-color: #34e7e4;\n"
+"}"));
 
         audio_button_layout->addWidget(stop_button);
 
-        backward_button = new QPushButton(widget);
+        backward_button = new QPushButton(layoutWidget);
         backward_button->setObjectName("backward_button");
         backward_button->setFont(font3);
-        backward_button->setStyleSheet(QString::fromUtf8("background-color: #d2dae2;\n"
+        backward_button->setStyleSheet(QString::fromUtf8("QPushButton\n"
+"{\n"
+"background-color: #d2dae2;\n"
 "border-radius: 15px;\n"
 "color: white;\n"
 "width: 40px;\n"
-"height: 40px;"));
+"height: 40px;\n"
+"}\n"
+"QPushButton:Hover\n"
+"{\n"
+"	background-color: #34e7e4;\n"
+"}"));
 
         audio_button_layout->addWidget(backward_button);
 
-        play_button = new QPushButton(widget);
+        play_button = new QPushButton(layoutWidget);
         play_button->setObjectName("play_button");
         play_button->setFont(font3);
-        play_button->setStyleSheet(QString::fromUtf8("background-color: #d2dae2;\n"
+        play_button->setStyleSheet(QString::fromUtf8("QPushButton\n"
+"{\n"
+"background-color: #d2dae2;\n"
 "border-radius: 15px;\n"
 "color: white;\n"
 "width: 40px;\n"
-"height: 40px;"));
+"height: 40px;\n"
+"}\n"
+"QPushButton:Hover\n"
+"{\n"
+"	background-color: #34e7e4;\n"
+"}"));
 
         audio_button_layout->addWidget(play_button);
 
-        forward_button = new QPushButton(widget);
+        forward_button = new QPushButton(layoutWidget);
         forward_button->setObjectName("forward_button");
         forward_button->setFont(font3);
-        forward_button->setStyleSheet(QString::fromUtf8("background-color: #d2dae2;\n"
+        forward_button->setStyleSheet(QString::fromUtf8("QPushButton\n"
+"{\n"
+"background-color: #d2dae2;\n"
 "border-radius: 15px;\n"
 "color: white;\n"
 "width: 40px;\n"
-"height: 40px;"));
+"height: 40px;\n"
+"}\n"
+"QPushButton:Hover\n"
+"{\n"
+"	background-color: #34e7e4;\n"
+"}"));
 
         audio_button_layout->addWidget(forward_button);
 
+        mute_button = new QPushButton(layoutWidget);
+        mute_button->setObjectName("mute_button");
+        mute_button->setFont(font3);
+        mute_button->setStyleSheet(QString::fromUtf8("QPushButton\n"
+"{\n"
+"background-color: #d2dae2;\n"
+"border-radius: 15px;\n"
+"color: white;\n"
+"width: 40px;\n"
+"height: 40px;\n"
+"}\n"
+"QPushButton:Hover\n"
+"{\n"
+"	background-color: #34e7e4;\n"
+"}"));
+
+        audio_button_layout->addWidget(mute_button);
+
+        song_start_time_label = new QLabel(centralwidget);
+        song_start_time_label->setObjectName("song_start_time_label");
+        song_start_time_label->setGeometry(QRect(20, 370, 61, 20));
+        QFont font4;
+        font4.setFamilies({QString::fromUtf8("MS Reference Sans Serif")});
+        font4.setPointSize(7);
+        font4.setBold(false);
+        song_start_time_label->setFont(font4);
+        song_start_time_label->setStyleSheet(QString::fromUtf8("color: #d2dae2;"));
+        song_end_time_label = new QLabel(centralwidget);
+        song_end_time_label->setObjectName("song_end_time_label");
+        song_end_time_label->setGeometry(QRect(450, 370, 61, 20));
+        song_end_time_label->setFont(font4);
+        song_end_time_label->setStyleSheet(QString::fromUtf8("color: #d2dae2;"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 522, 24));
-        QFont font4;
-        font4.setFamilies({QString::fromUtf8("MS Reference Sans Serif")});
-        font4.setBold(false);
-        menubar->setFont(font4);
+        menubar->setGeometry(QRect(0, 0, 521, 24));
+        menubar->setFont(font2);
         menubar->setStyleSheet(QString::fromUtf8("background-color: #485460; \n"
 "color: #d2dae2;"));
         menuBrowse = new QMenu(menubar);
@@ -232,12 +285,14 @@ public:
         song_title_lbl->setText(QCoreApplication::translate("MainWindow", "NO SONG PLAYING", nullptr));
         min_volume_lbl->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         max_volume_lbl->setText(QCoreApplication::translate("MainWindow", "100", nullptr));
-        mute_button->setText(QString());
         repeat_button->setText(QString());
         stop_button->setText(QString());
         backward_button->setText(QString());
         play_button->setText(QString());
         forward_button->setText(QString());
+        mute_button->setText(QString());
+        song_start_time_label->setText(QCoreApplication::translate("MainWindow", "00:00:00", nullptr));
+        song_end_time_label->setText(QCoreApplication::translate("MainWindow", "00:00:00", nullptr));
         menuBrowse->setTitle(QCoreApplication::translate("MainWindow", "Browse", nullptr));
         menuAssistant->setTitle(QCoreApplication::translate("MainWindow", "Assistant", nullptr));
         menuHelp->setTitle(QCoreApplication::translate("MainWindow", "Help", nullptr));

@@ -24,6 +24,9 @@ public:
     ~MainWindow();
 
 private slots:
+    void durationChanged(qint64 duration);
+    void positionChanged(qint64 progress);
+
     void on_play_button_clicked();
 
     void on_stop_button_clicked();
@@ -39,9 +42,16 @@ private slots:
 
     void on_mute_button_clicked();
 
+    void on_song_progress_slider_valueChanged(int value);
+
+    void on_song_progress_slider_sliderMoved(int position);
+
 private:
     Ui::MainWindow *ui;
     QMediaPlayer *m_player;
     QAudioOutput *audioOutput;
+    void updateDuration(qint64 duration);
+    qint64 mDuration;
+
 };
 #endif // MAINWINDOW_H
