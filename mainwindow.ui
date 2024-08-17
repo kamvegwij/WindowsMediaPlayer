@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>521</width>
+    <width>526</width>
     <height>504</height>
    </rect>
   </property>
@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #485460;
+   <string notr="true">background-color: #2d3436;
 
 </string>
   </property>
@@ -23,7 +23,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>300</y>
       <width>521</width>
       <height>41</height>
      </rect>
@@ -31,20 +31,22 @@
     <property name="font">
      <font>
       <family>MS Reference Sans Serif</family>
-      <pointsize>12</pointsize>
+      <pointsize>9</pointsize>
       <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: #34e7e4;
-border: 1px solid #d2dae2;
-color: #1e272e;</string>
+     <string notr="true">color: #dfe6e9;
+border: none;</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::Panel</enum>
     </property>
     <property name="text">
      <string>NO SONG PLAYING</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QSlider" name="volume_slider">
@@ -61,61 +63,18 @@ color: #1e272e;</string>
 	height: 5px;
 	width: 150px;
 	border-radius: 10px;
-	background: #d2dae2;
+	background: #636e72;
 }
 QSlider::handle:horizontal{
+	margin: -3px 0px;
 	height: 25px;
 	width: 25px;
 	border-radius: 10px;
-	background: #ffc048;
+	background: #dfe6e9;
 }</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QLabel" name="min_volume_lbl">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>440</y>
-      <width>21</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>MS Reference Sans Serif</family>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: #d2dae2;</string>
-    </property>
-    <property name="text">
-     <string>0</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="max_volume_lbl">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>440</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>MS Reference Sans Serif</family>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: #d2dae2;</string>
-    </property>
-    <property name="text">
-     <string>100</string>
     </property>
    </widget>
    <widget class="QSlider" name="song_progress_slider">
@@ -132,13 +91,14 @@ QSlider::handle:horizontal{
 	height: 2px;
 	width: 500px;
 	border-radius: 10px;
-	background: #d2dae2;
+	background: #636e72;
 }
 QSlider::handle:horizontal{
-	height: 25px;
+	margin: 0px 0px;
+	height: 10px;
 	width: 25px;
-	border-radius: 10px;
-	background: #ff3f34;
+	border-radius: 25px;
+	background: #dfe6e9;
 }</string>
     </property>
     <property name="orientation">
@@ -166,7 +126,7 @@ QSlider::handle:horizontal{
        <property name="styleSheet">
         <string notr="true">QPushButton
 {
-background-color: #d2dae2;
+background-color: #dfe6e9;
 border-radius: 15px;
 color: white;
 width: 40px;
@@ -174,7 +134,7 @@ height: 40px;
 }
 QPushButton:Hover
 {
-	background-color: #34e7e4;
+	background-color: #b2bec3;
 }</string>
        </property>
        <property name="text">
@@ -193,7 +153,7 @@ QPushButton:Hover
        <property name="styleSheet">
         <string notr="true">QPushButton
 {
-background-color: #d2dae2;
+background-color: #dfe6e9;
 border-radius: 15px;
 color: white;
 width: 40px;
@@ -201,7 +161,7 @@ height: 40px;
 }
 QPushButton:Hover
 {
-	background-color: #34e7e4;
+	background-color: #b2bec3;
 }</string>
        </property>
        <property name="text">
@@ -220,7 +180,7 @@ QPushButton:Hover
        <property name="styleSheet">
         <string notr="true">QPushButton
 {
-background-color: #d2dae2;
+background-color: #dfe6e9;
 border-radius: 15px;
 color: white;
 width: 40px;
@@ -228,7 +188,7 @@ height: 40px;
 }
 QPushButton:Hover
 {
-	background-color: #34e7e4;
+	background-color: #b2bec3;
 }</string>
        </property>
        <property name="text">
@@ -247,7 +207,7 @@ QPushButton:Hover
        <property name="styleSheet">
         <string notr="true">QPushButton
 {
-background-color: #d2dae2;
+background-color: #dfe6e9;
 border-radius: 15px;
 color: white;
 width: 40px;
@@ -255,7 +215,7 @@ height: 40px;
 }
 QPushButton:Hover
 {
-	background-color: #34e7e4;
+	background-color: #b2bec3;
 }</string>
        </property>
        <property name="text">
@@ -274,7 +234,7 @@ QPushButton:Hover
        <property name="styleSheet">
         <string notr="true">QPushButton
 {
-background-color: #d2dae2;
+background-color: #dfe6e9;
 border-radius: 15px;
 color: white;
 width: 40px;
@@ -282,7 +242,7 @@ height: 40px;
 }
 QPushButton:Hover
 {
-	background-color: #34e7e4;
+	background-color: #b2bec3;
 }</string>
        </property>
        <property name="text">
@@ -301,7 +261,7 @@ QPushButton:Hover
        <property name="styleSheet">
         <string notr="true">QPushButton
 {
-background-color: #d2dae2;
+background-color: #dfe6e9;
 border-radius: 15px;
 color: white;
 width: 40px;
@@ -309,7 +269,7 @@ height: 40px;
 }
 QPushButton:Hover
 {
-	background-color: #34e7e4;
+	background-color: #b2bec3;
 }</string>
        </property>
        <property name="text">
@@ -339,15 +299,15 @@ QPushButton:Hover
      <string notr="true">color: #d2dae2;</string>
     </property>
     <property name="text">
-     <string>00:00:00</string>
+     <string>00:00</string>
     </property>
    </widget>
    <widget class="QLabel" name="song_end_time_label">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>470</x>
       <y>370</y>
-      <width>61</width>
+      <width>41</width>
       <height>20</height>
      </rect>
     </property>
@@ -356,13 +316,54 @@ QPushButton:Hover
       <family>MS Reference Sans Serif</family>
       <pointsize>7</pointsize>
       <bold>false</bold>
+      <kerning>false</kerning>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">color: #d2dae2;</string>
     </property>
     <property name="text">
-     <string>00:00:00</string>
+     <string notr="true">00:00</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>10</y>
+      <width>141</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MS Reference Sans Serif</family>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QRadioButton
+{
+	padding-left: 5px;
+	border-radius: 10px;
+	background-color: #636e72;
+	color: #ffeaa7;
+}</string>
+    </property>
+    <property name="text">
+     <string>Producer Tools</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="developer_tool_view">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>40</y>
+      <width>141</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #ffeaa7;</string>
     </property>
    </widget>
   </widget>
@@ -371,7 +372,7 @@ QPushButton:Hover
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>521</width>
+     <width>526</width>
      <height>24</height>
     </rect>
    </property>

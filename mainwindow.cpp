@@ -6,23 +6,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    m_player = new QMediaPlayer;
-    ui->play_button->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
-    ui->stop_button->setIcon(style()->standardIcon(QStyle::SP_MediaStop));
-    ui->backward_button->setIcon(style()->standardIcon(QStyle::SP_MediaSeekBackward));
-    ui->forward_button->setIcon(style()->standardIcon(QStyle::SP_MediaSeekForward));
-    ui->repeat_button->setIcon(style()->standardIcon(QStyle::SP_BrowserReload));
-    ui->mute_button->setIcon(style()->standardIcon(QStyle::SP_MediaVolume));
 
-    audioOutput = new QAudioOutput();
-    m_player->setAudioOutput(audioOutput);
-
-    ui->volume_slider->setMinimum(0);
-    ui->volume_slider->setMaximum(100);
-    ui->volume_slider->setValue(50); //default volume when opening.
-
-    int initial_volume = ui->volume_slider->value();
-    audioOutput->setVolume(initial_volume);
+    _setup_ui();
+    _setup_audio_settings();
 
     connect(m_player, &QMediaPlayer::durationChanged, this, &MainWindow::durationChanged);
     connect(m_player, &QMediaPlayer::positionChanged, this, &MainWindow::positionChanged);
@@ -34,6 +20,31 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+void MainWindow::_setup_ui()
+{
+    ui->play_button->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
+    ui->stop_button->setIcon(style()->standardIcon(QStyle::SP_MediaStop));
+    ui->backward_button->setIcon(style()->standardIcon(QStyle::SP_MediaSeekBackward));
+    ui->forward_button->setIcon(style()->standardIcon(QStyle::SP_MediaSeekForward));
+    ui->repeat_button->setIcon(style()->standardIcon(QStyle::SP_BrowserReload));
+    ui->mute_button->setIcon(style()->standardIcon(QStyle::SP_MediaVolume));
+
+    //Developer Tools View:
+    ui->developer_tool_view->setVisible(false);
+}
+void MainWindow::_setup_audio_settings()
+{
+    m_player = new QMediaPlayer;
+    audioOutput = new QAudioOutput();
+    m_player->setAudioOutput(audioOutput);
+
+    ui->volume_slider->setMinimum(0);
+    ui->volume_slider->setMaximum(100);
+    ui->volume_slider->setValue(50); //default volume when opening.
+
+    int initial_volume = ui->volume_slider->value();
+    audioOutput->setVolume(initial_volume);
+}
 void MainWindow::on_actionOpen_Files_triggered()
 {
     QString FileName = QFileDialog::getOpenFileName(this, tr("Select Audio File"),"",tr("Files (*.MP3, *.M4A, *.WAV)"));
@@ -43,31 +54,32 @@ void MainWindow::on_actionOpen_Files_triggered()
     ui->song_title_lbl->setText(File.fileName());
 }
 
-void MainWindow::durationChanged(qint64 duration)
-{
-    mDuration = duration / 1000;
-    ui->song_progress_slider->setMaximum(mDuration);
-}
 void MainWindow::updateDuration(qint64 duration)
 {
-    //QString timeStr;
     if(duration || mDuration)
     {
-        QTime CurrentTime((duration/3600) % 60, (duration/ 60) % 60, (duration *1000) % 1000);
+        QTime currentTime((duration/3600) % 60, (duration/ 60) % 60, (duration *1000) % 1000);
         QTime totalTime((mDuration/3600) % 60, (mDuration/ 60) % 60, (mDuration *1000) % 1000);
+
         QString format = "hh:mm:ss";
 
-        ui->song_start_time_label->setText(CurrentTime.toString((format)));
+        ui->song_start_time_label->setText(currentTime.toString(format));
         ui->song_end_time_label->setText(totalTime.toString(format));
 
     }
 }
-void MainWindow::positionChanged(qint64 progress)
+void MainWindow::durationChanged(qint64 duration)//override the QMediaPlayer::durationChanged method.
+{
+    mDuration = duration / 1000;
+    ui->song_progress_slider->setMaximum(mDuration);
+
+}
+void MainWindow::positionChanged(qint64 position)//override the QMediaPlayer::positionChanged method.
 {
     if (!ui->song_progress_slider->isSliderDown()){
-        ui->song_progress_slider->setValue(progress / 1000);
+        ui->song_progress_slider->setValue(position / 1000);
     }
-    updateDuration(progress / 1000);
+    updateDuration(position / 1000);
 }
 
 void MainWindow::on_volume_slider_valueChanged(int value)
@@ -94,8 +106,6 @@ void MainWindow::on_stop_button_clicked()
 }
 void MainWindow::on_song_progress_slider_valueChanged(int value)
 {
-    //rewind or fast forward by dragging the progress slider
-    //m_player->setPosition(value * 1000);
 }
 void MainWindow::on_song_progress_slider_sliderMoved(int position)
 {
@@ -131,6 +141,15 @@ void MainWindow::on_repeat_button_clicked()
 
 }
 
+void MainWindow::on_radioButton_toggled(bool checked)
+{
+    developerToolsChecked = checked; //change this value
+    ui->developer_tool_view->setVisible(checked);
+}
 
 
+void MainWindow::on_listWidget_itemPressed(QListWidgetItem *item)
+{
+
+}
 
