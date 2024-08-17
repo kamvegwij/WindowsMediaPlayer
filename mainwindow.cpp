@@ -23,14 +23,13 @@ MainWindow::~MainWindow()
 void MainWindow::_setup_ui()
 {
     ui->play_button->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
-    ui->stop_button->setIcon(style()->standardIcon(QStyle::SP_MediaStop));
     ui->backward_button->setIcon(style()->standardIcon(QStyle::SP_MediaSeekBackward));
     ui->forward_button->setIcon(style()->standardIcon(QStyle::SP_MediaSeekForward));
     ui->repeat_button->setIcon(style()->standardIcon(QStyle::SP_BrowserReload));
     ui->mute_button->setIcon(style()->standardIcon(QStyle::SP_MediaVolume));
 
     //Developer Tools View:
-    ui->developer_tool_view->setVisible(false);
+    ui->producer_tool_view->setVisible(false);
 }
 void MainWindow::_setup_audio_settings()
 {
@@ -99,11 +98,6 @@ void MainWindow::on_play_button_clicked()
     }
 
 }
-void MainWindow::on_stop_button_clicked()
-{
-    ui->play_button->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
-    m_player->stop();
-}
 void MainWindow::on_song_progress_slider_valueChanged(int value)
 {
 }
@@ -144,7 +138,7 @@ void MainWindow::on_repeat_button_clicked()
 void MainWindow::on_radioButton_toggled(bool checked)
 {
     developerToolsChecked = checked; //change this value
-    ui->developer_tool_view->setVisible(checked);
+    ui->producer_tool_view->setVisible(checked);
 }
 
 

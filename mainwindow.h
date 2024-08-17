@@ -29,7 +29,6 @@ private slots:
 
     void on_play_button_clicked();
 
-    void on_stop_button_clicked();
     void on_actionOpen_Files_triggered();
 
     void on_volume_slider_valueChanged(int value);

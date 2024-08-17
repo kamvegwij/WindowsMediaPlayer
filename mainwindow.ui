@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>526</width>
-    <height>504</height>
+    <width>664</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,77 +19,164 @@
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="song_title_lbl">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>300</y>
-      <width>521</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>MS Reference Sans Serif</family>
-      <pointsize>9</pointsize>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: #dfe6e9;
-border: none;</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Panel</enum>
-    </property>
-    <property name="text">
-     <string>NO SONG PLAYING</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QSlider" name="volume_slider">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>420</y>
-      <width>161</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QSlider::groove:horizontal{
-	height: 5px;
-	width: 150px;
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>638</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="producer_vertical_layout">
+        <item>
+         <layout class="QHBoxLayout" name="producer_button_horizontal_layout">
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>48</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioButton">
+            <property name="font">
+             <font>
+              <family>MS Reference Sans Serif</family>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QRadioButton
+{
+	padding-left: 5px;
 	border-radius: 10px;
-	background: #636e72;
-}
-QSlider::handle:horizontal{
-	margin: -3px 0px;
-	height: 25px;
-	width: 25px;
-	border-radius: 10px;
-	background: #dfe6e9;
+	background-color: #636e72;
+	color: #ffeaa7;
 }</string>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QSlider" name="song_progress_slider">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>350</y>
-      <width>511</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QSlider::groove:horizontal{
+            </property>
+            <property name="text">
+             <string>Producer Tools</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="producer_view_horizontal_layout">
+          <item>
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>38</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QListWidget" name="producer_tool_view">
+            <property name="styleSheet">
+             <string notr="true">background-color: #ffeaa7;</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Audio Levels</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Length</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Song Key</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>High Frequencies</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Mid Frequencies</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Low Frequencies</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>86</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="song_info_horizontal_layout">
+      <item>
+       <widget class="QLabel" name="song_title_lbl">
+        <property name="font">
+         <font>
+          <family>MS Reference Sans Serif</family>
+          <pointsize>9</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: #dfe6e9;
+border: none;</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Panel</enum>
+        </property>
+        <property name="text">
+         <string>NO SONG PLAYING</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSlider" name="song_progress_slider">
+        <property name="styleSheet">
+         <string notr="true">QSlider::groove:horizontal{
 	height: 2px;
-	width: 500px;
 	border-radius: 10px;
 	background: #636e72;
 }
@@ -100,31 +187,93 @@ QSlider::handle:horizontal{
 	border-radius: 25px;
 	background: #dfe6e9;
 }</string>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>410</y>
-      <width>277</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="audio_button_layout">
-     <item>
-      <widget class="QPushButton" name="repeat_button">
-       <property name="font">
-        <font>
-         <pointsize>20</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="song_start_time_label">
+        <property name="font">
+         <font>
+          <family>MS Reference Sans Serif</family>
+          <pointsize>7</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: #ffeaa7;</string>
+        </property>
+        <property name="text">
+         <string>00:00</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>548</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="song_end_time_label">
+        <property name="font">
+         <font>
+          <family>MS Reference Sans Serif</family>
+          <pointsize>7</pointsize>
+          <bold>false</bold>
+          <kerning>false</kerning>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: #ffeaa7;</string>
+        </property>
+        <property name="text">
+         <string notr="true">00:00</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="buttons_horizontal_layout">
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>108</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="audio_buttons_horizontal_layout">
+        <item>
+         <widget class="QPushButton" name="repeat_button">
+          <property name="font">
+           <font>
+            <pointsize>20</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton
 {
 background-color: #dfe6e9;
 border-radius: 15px;
@@ -136,22 +285,22 @@ QPushButton:Hover
 {
 	background-color: #b2bec3;
 }</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="stop_button">
-       <property name="font">
-        <font>
-         <pointsize>20</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="backward_button">
+          <property name="font">
+           <font>
+            <pointsize>20</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton
 {
 background-color: #dfe6e9;
 border-radius: 15px;
@@ -163,22 +312,22 @@ QPushButton:Hover
 {
 	background-color: #b2bec3;
 }</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="backward_button">
-       <property name="font">
-        <font>
-         <pointsize>20</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="play_button">
+          <property name="font">
+           <font>
+            <pointsize>20</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton
 {
 background-color: #dfe6e9;
 border-radius: 15px;
@@ -190,22 +339,22 @@ QPushButton:Hover
 {
 	background-color: #b2bec3;
 }</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="play_button">
-       <property name="font">
-        <font>
-         <pointsize>20</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="forward_button">
+          <property name="font">
+           <font>
+            <pointsize>20</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton
 {
 background-color: #dfe6e9;
 border-radius: 15px;
@@ -217,22 +366,22 @@ QPushButton:Hover
 {
 	background-color: #b2bec3;
 }</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="forward_button">
-       <property name="font">
-        <font>
-         <pointsize>20</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="mute_button">
+          <property name="font">
+           <font>
+            <pointsize>20</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton
 {
 background-color: #dfe6e9;
 border-radius: 15px;
@@ -244,135 +393,45 @@ QPushButton:Hover
 {
 	background-color: #b2bec3;
 }</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="mute_button">
-       <property name="font">
-        <font>
-         <pointsize>20</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton
-{
-background-color: #dfe6e9;
-border-radius: 15px;
-color: white;
-width: 40px;
-height: 40px;
-}
-QPushButton:Hover
-{
-	background-color: #b2bec3;
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QLabel" name="song_start_time_label">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>370</y>
-      <width>61</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>MS Reference Sans Serif</family>
-      <pointsize>7</pointsize>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: #d2dae2;</string>
-    </property>
-    <property name="text">
-     <string>00:00</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="song_end_time_label">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>370</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>MS Reference Sans Serif</family>
-      <pointsize>7</pointsize>
-      <bold>false</bold>
-      <kerning>false</kerning>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: #d2dae2;</string>
-    </property>
-    <property name="text">
-     <string notr="true">00:00</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="radioButton">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>10</y>
-      <width>141</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>MS Reference Sans Serif</family>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QRadioButton
-{
-	padding-left: 5px;
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QSlider" name="volume_slider">
+        <property name="styleSheet">
+         <string notr="true">QSlider::groove:horizontal{
+	height: 5px;
 	border-radius: 10px;
-	background-color: #636e72;
-	color: #ffeaa7;
+	background: #636e72;
+}
+QSlider::handle:horizontal{
+	margin: -3px 0px;
+	height: 25px;
+	width: 25px;
+	border-radius: 10px;
+	background: #dfe6e9;
 }</string>
-    </property>
-    <property name="text">
-     <string>Producer Tools</string>
-    </property>
-   </widget>
-   <widget class="QListWidget" name="developer_tool_view">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>40</y>
-      <width>141</width>
-      <height>251</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #ffeaa7;</string>
-    </property>
-   </widget>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>526</width>
+     <width>664</width>
      <height>24</height>
     </rect>
    </property>

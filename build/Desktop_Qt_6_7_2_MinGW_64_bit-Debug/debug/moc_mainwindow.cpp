@@ -46,7 +46,6 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "positionChanged",
     "position",
     "on_play_button_clicked",
-    "on_stop_button_clicked",
     "on_actionOpen_Files_triggered",
     "on_volume_slider_valueChanged",
     "value",
@@ -73,7 +72,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -81,36 +80,34 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   98,    2, 0x08,    1 /* Private */,
-       4,    1,  101,    2, 0x08,    3 /* Private */,
-       6,    0,  104,    2, 0x08,    5 /* Private */,
-       7,    0,  105,    2, 0x08,    6 /* Private */,
-       8,    0,  106,    2, 0x08,    7 /* Private */,
-       9,    1,  107,    2, 0x08,    8 /* Private */,
-      11,    0,  110,    2, 0x08,   10 /* Private */,
-      12,    0,  111,    2, 0x08,   11 /* Private */,
-      13,    0,  112,    2, 0x08,   12 /* Private */,
-      14,    0,  113,    2, 0x08,   13 /* Private */,
-      15,    1,  114,    2, 0x08,   14 /* Private */,
-      16,    1,  117,    2, 0x08,   16 /* Private */,
-      17,    1,  120,    2, 0x08,   18 /* Private */,
-      19,    1,  123,    2, 0x08,   20 /* Private */,
+       1,    1,   92,    2, 0x08,    1 /* Private */,
+       4,    1,   95,    2, 0x08,    3 /* Private */,
+       6,    0,   98,    2, 0x08,    5 /* Private */,
+       7,    0,   99,    2, 0x08,    6 /* Private */,
+       8,    1,  100,    2, 0x08,    7 /* Private */,
+      10,    0,  103,    2, 0x08,    9 /* Private */,
+      11,    0,  104,    2, 0x08,   10 /* Private */,
+      12,    0,  105,    2, 0x08,   11 /* Private */,
+      13,    0,  106,    2, 0x08,   12 /* Private */,
+      14,    1,  107,    2, 0x08,   13 /* Private */,
+      15,    1,  110,    2, 0x08,   15 /* Private */,
+      16,    1,  113,    2, 0x08,   17 /* Private */,
+      18,    1,  116,    2, 0x08,   19 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::LongLong,    3,
     QMetaType::Void, QMetaType::LongLong,    5,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   10,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    9,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   10,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    9,
     QMetaType::Void, QMetaType::Int,    5,
-    QMetaType::Void, QMetaType::Bool,   18,
-    QMetaType::Void, 0x80000000 | 20,   21,
+    QMetaType::Void, QMetaType::Bool,   17,
+    QMetaType::Void, 0x80000000 | 19,   20,
 
        0        // eod
 };
@@ -131,8 +128,6 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<qint64, std::false_type>,
         // method 'on_play_button_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_stop_button_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_actionOpen_Files_triggered'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -172,17 +167,16 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->durationChanged((*reinterpret_cast< std::add_pointer_t<qint64>>(_a[1]))); break;
         case 1: _t->positionChanged((*reinterpret_cast< std::add_pointer_t<qint64>>(_a[1]))); break;
         case 2: _t->on_play_button_clicked(); break;
-        case 3: _t->on_stop_button_clicked(); break;
-        case 4: _t->on_actionOpen_Files_triggered(); break;
-        case 5: _t->on_volume_slider_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 6: _t->on_repeat_button_clicked(); break;
-        case 7: _t->on_backward_button_clicked(); break;
-        case 8: _t->on_forward_button_clicked(); break;
-        case 9: _t->on_mute_button_clicked(); break;
-        case 10: _t->on_song_progress_slider_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 11: _t->on_song_progress_slider_sliderMoved((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 12: _t->on_radioButton_toggled((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
-        case 13: _t->on_listWidget_itemPressed((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
+        case 3: _t->on_actionOpen_Files_triggered(); break;
+        case 4: _t->on_volume_slider_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 5: _t->on_repeat_button_clicked(); break;
+        case 6: _t->on_backward_button_clicked(); break;
+        case 7: _t->on_forward_button_clicked(); break;
+        case 8: _t->on_mute_button_clicked(); break;
+        case 9: _t->on_song_progress_slider_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 10: _t->on_song_progress_slider_sliderMoved((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 11: _t->on_radioButton_toggled((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 12: _t->on_listWidget_itemPressed((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
         default: ;
         }
     }
@@ -207,13 +201,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 13)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 14;
+        _id -= 13;
     }
     return _id;
 }
