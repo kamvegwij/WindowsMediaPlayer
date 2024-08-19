@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/buttons">
+        <file>images/drawnBackwardButton.png</file>
+        <file>images/drawnForwardButton.png</file>
+        <file>images/drawnLikeButton.png</file>
+        <file>images/drawnPauseButton.png</file>
+        <file>images/drawnPlayButton.png</file>
+        <file>images/drawnQuitButton.png</file>
+        <file>images/drawnRepeatButton.png</file>
+        <file>images/drawnStopButton.png</file>
+        <file>images/drawnVolumeButton.png</file>
+    </qresource>
+</RCC>

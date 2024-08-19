@@ -165,7 +165,7 @@ border: none;</string>
          <enum>QFrame::Panel</enum>
         </property>
         <property name="text">
-         <string>NO SONG PLAYING</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -275,7 +275,7 @@ QSlider::handle:horizontal{
           <property name="styleSheet">
            <string notr="true">QPushButton
 {
-background-color: #dfe6e9;
+background-color: transparent;
 border-radius: 15px;
 color: white;
 width: 40px;
@@ -283,11 +283,14 @@ height: 40px;
 }
 QPushButton:Hover
 {
-	background-color: #b2bec3;
+	background-color: transparent;
 }</string>
           </property>
           <property name="text">
            <string/>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -302,7 +305,7 @@ QPushButton:Hover
           <property name="styleSheet">
            <string notr="true">QPushButton
 {
-background-color: #dfe6e9;
+background-color: transparent;
 border-radius: 15px;
 color: white;
 width: 40px;
@@ -310,7 +313,7 @@ height: 40px;
 }
 QPushButton:Hover
 {
-	background-color: #b2bec3;
+	background-color: transparent;
 }</string>
           </property>
           <property name="text">
@@ -329,7 +332,7 @@ QPushButton:Hover
           <property name="styleSheet">
            <string notr="true">QPushButton
 {
-background-color: #dfe6e9;
+background-color: transparent;
 border-radius: 15px;
 color: white;
 width: 40px;
@@ -337,11 +340,14 @@ height: 40px;
 }
 QPushButton:Hover
 {
-	background-color: #b2bec3;
+	background-color: transparent;
 }</string>
           </property>
           <property name="text">
            <string/>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -356,7 +362,7 @@ QPushButton:Hover
           <property name="styleSheet">
            <string notr="true">QPushButton
 {
-background-color: #dfe6e9;
+background-color: transparent;
 border-radius: 15px;
 color: white;
 width: 40px;
@@ -364,7 +370,7 @@ height: 40px;
 }
 QPushButton:Hover
 {
-	background-color: #b2bec3;
+	background-color: transparent;
 }</string>
           </property>
           <property name="text">
@@ -383,7 +389,7 @@ QPushButton:Hover
           <property name="styleSheet">
            <string notr="true">QPushButton
 {
-background-color: #dfe6e9;
+background-color: transparent;
 border-radius: 15px;
 color: white;
 width: 40px;
@@ -391,7 +397,7 @@ height: 40px;
 }
 QPushButton:Hover
 {
-	background-color: #b2bec3;
+	background-color: transparent;
 }</string>
           </property>
           <property name="text">

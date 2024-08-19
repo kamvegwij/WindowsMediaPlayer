@@ -231,7 +231,7 @@ public:
         repeat_button->setFont(font5);
         repeat_button->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
-"background-color: #dfe6e9;\n"
+"background-color: transparent;\n"
 "border-radius: 15px;\n"
 "color: white;\n"
 "width: 40px;\n"
@@ -239,8 +239,9 @@ public:
 "}\n"
 "QPushButton:Hover\n"
 "{\n"
-"	background-color: #b2bec3;\n"
+"	background-color: transparent;\n"
 "}"));
+        repeat_button->setFlat(true);
 
         audio_buttons_horizontal_layout->addWidget(repeat_button);
 
@@ -249,7 +250,7 @@ public:
         backward_button->setFont(font5);
         backward_button->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
-"background-color: #dfe6e9;\n"
+"background-color: transparent;\n"
 "border-radius: 15px;\n"
 "color: white;\n"
 "width: 40px;\n"
@@ -257,7 +258,7 @@ public:
 "}\n"
 "QPushButton:Hover\n"
 "{\n"
-"	background-color: #b2bec3;\n"
+"	background-color: transparent;\n"
 "}"));
 
         audio_buttons_horizontal_layout->addWidget(backward_button);
@@ -267,7 +268,7 @@ public:
         play_button->setFont(font5);
         play_button->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
-"background-color: #dfe6e9;\n"
+"background-color: transparent;\n"
 "border-radius: 15px;\n"
 "color: white;\n"
 "width: 40px;\n"
@@ -275,8 +276,9 @@ public:
 "}\n"
 "QPushButton:Hover\n"
 "{\n"
-"	background-color: #b2bec3;\n"
+"	background-color: transparent;\n"
 "}"));
+        play_button->setFlat(false);
 
         audio_buttons_horizontal_layout->addWidget(play_button);
 
@@ -285,7 +287,7 @@ public:
         forward_button->setFont(font5);
         forward_button->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
-"background-color: #dfe6e9;\n"
+"background-color: transparent;\n"
 "border-radius: 15px;\n"
 "color: white;\n"
 "width: 40px;\n"
@@ -293,7 +295,7 @@ public:
 "}\n"
 "QPushButton:Hover\n"
 "{\n"
-"	background-color: #b2bec3;\n"
+"	background-color: transparent;\n"
 "}"));
 
         audio_buttons_horizontal_layout->addWidget(forward_button);
@@ -303,7 +305,7 @@ public:
         mute_button->setFont(font5);
         mute_button->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
-"background-color: #dfe6e9;\n"
+"background-color: transparent;\n"
 "border-radius: 15px;\n"
 "color: white;\n"
 "width: 40px;\n"
@@ -311,7 +313,7 @@ public:
 "}\n"
 "QPushButton:Hover\n"
 "{\n"
-"	background-color: #b2bec3;\n"
+"	background-color: transparent;\n"
 "}"));
 
         audio_buttons_horizontal_layout->addWidget(mute_button);
@@ -391,7 +393,7 @@ public:
         ___qlistwidgetitem5->setText(QCoreApplication::translate("MainWindow", "Low Frequencies", nullptr));
         producer_tool_view->setSortingEnabled(__sortingEnabled);
 
-        song_title_lbl->setText(QCoreApplication::translate("MainWindow", "NO SONG PLAYING", nullptr));
+        song_title_lbl->setText(QString());
         song_start_time_label->setText(QCoreApplication::translate("MainWindow", "00:00", nullptr));
         repeat_button->setText(QString());
         backward_button->setText(QString());

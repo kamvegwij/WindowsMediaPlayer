@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(m_player, &QMediaPlayer::durationChanged, this, &MainWindow::durationChanged);
     connect(m_player, &QMediaPlayer::positionChanged, this, &MainWindow::positionChanged);
-
+    connect(m_player, &QMediaPlayer::playingChanged, this, &MainWindow::songPlayingChanged);
     ui->song_progress_slider->setRange(0, m_player->duration() / 1000);
 }
 
@@ -22,11 +22,11 @@ MainWindow::~MainWindow()
 }
 void MainWindow::_setup_ui()
 {
-    ui->play_button->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
-    ui->backward_button->setIcon(style()->standardIcon(QStyle::SP_MediaSeekBackward));
-    ui->forward_button->setIcon(style()->standardIcon(QStyle::SP_MediaSeekForward));
-    ui->repeat_button->setIcon(style()->standardIcon(QStyle::SP_BrowserReload));
-    ui->mute_button->setIcon(style()->standardIcon(QStyle::SP_MediaVolume));
+    ui->play_button->setIcon(QIcon(QPixmap(":/buttons/images/drawnPlayButton.png")));
+    ui->backward_button->setIcon(QIcon(QPixmap(":/buttons/images/drawnBackwardButton.png")));
+    ui->forward_button->setIcon(QIcon(QPixmap(":/buttons/images/drawnForwardButton.png")));
+    ui->repeat_button->setIcon(QIcon(QPixmap(":/buttons/images/drawnRepeatButton.png")));
+    ui->mute_button->setIcon(QIcon(QPixmap(":/buttons/images/drawnVolumeButton.png")));
 
     //Developer Tools View:
     ui->producer_tool_view->setVisible(false);
@@ -85,16 +85,23 @@ void MainWindow::on_volume_slider_valueChanged(int value)
 {
     audioOutput->setVolume(value);
 }
+void MainWindow::songPlayingChanged(bool playing)
+{
+    if (playing == false){
+        ui->play_button->setIcon(QIcon(QPixmap(":/buttons/images/drawnPlayButton.png")));
+    }
+    else{
+        ui->play_button->setIcon(QIcon(QPixmap(":/buttons/images/drawnPauseButton.png")));
+    }
+}
 void MainWindow::on_play_button_clicked()
 {
     if (m_player->isPlaying()){
-        ui->play_button->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
-        m_player->pause();
 
+        m_player->pause();
     }
     else{
         m_player->play();
-        ui->play_button->setIcon(style()->standardIcon(QStyle::SP_MediaPause));
     }
 
 }
@@ -124,7 +131,7 @@ void MainWindow::on_mute_button_clicked()
 
     bAudioMuted
         ?
-        ui->mute_button->setIcon(style()->standardIcon(QStyle::SP_MediaVolume))
+        ui->mute_button->setIcon(QIcon(QPixmap(":/buttons/images/drawnVolumeButton.png")))
         :
         ui->mute_button->setIcon(style()->standardIcon(QStyle::SP_MediaVolumeMuted));
 }
