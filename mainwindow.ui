@@ -14,7 +14,8 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #2d3436;
+   <string notr="true">background-color: #dfe6e9;
+
 
 </string>
   </property>
@@ -158,7 +159,7 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: #dfe6e9;
+         <string notr="true">color: #636e72;
 border: none;</string>
         </property>
         <property name="frameShape">
@@ -185,7 +186,7 @@ QSlider::handle:horizontal{
 	height: 10px;
 	width: 25px;
 	border-radius: 25px;
-	background: #dfe6e9;
+	background: #ffeaa7;
 }</string>
         </property>
         <property name="orientation">
@@ -207,7 +208,8 @@ QSlider::handle:horizontal{
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: #ffeaa7;</string>
+         <string notr="true">color:#2d3436; 
+</string>
         </property>
         <property name="text">
          <string>00:00</string>
@@ -238,7 +240,8 @@ QSlider::handle:horizontal{
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: #ffeaa7;</string>
+         <string notr="true">color:#2d3436; 
+</string>
         </property>
         <property name="text">
          <string notr="true">00:00</string>
@@ -420,7 +423,7 @@ QSlider::handle:horizontal{
 	height: 25px;
 	width: 25px;
 	border-radius: 10px;
-	background: #dfe6e9;
+	background: #2d3436;
 }</string>
         </property>
         <property name="orientation">

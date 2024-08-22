@@ -69,7 +69,8 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(664, 500);
-        MainWindow->setStyleSheet(QString::fromUtf8("background-color: #2d3436;\n"
+        MainWindow->setStyleSheet(QString::fromUtf8("background-color: #dfe6e9;\n"
+"\n"
 "\n"
 ""));
         actionOpen_Files = new QAction(MainWindow);
@@ -154,7 +155,7 @@ public:
         font2.setPointSize(9);
         font2.setBold(false);
         song_title_lbl->setFont(font2);
-        song_title_lbl->setStyleSheet(QString::fromUtf8("color: #dfe6e9;\n"
+        song_title_lbl->setStyleSheet(QString::fromUtf8("color: #636e72;\n"
 "border: none;"));
         song_title_lbl->setFrameShape(QFrame::Panel);
         song_title_lbl->setAlignment(Qt::AlignCenter);
@@ -173,7 +174,7 @@ public:
 "	height: 10px;\n"
 "	width: 25px;\n"
 "	border-radius: 25px;\n"
-"	background: #dfe6e9;\n"
+"	background: #ffeaa7;\n"
 "}"));
         song_progress_slider->setOrientation(Qt::Horizontal);
 
@@ -191,7 +192,8 @@ public:
         font3.setPointSize(7);
         font3.setBold(false);
         song_start_time_label->setFont(font3);
-        song_start_time_label->setStyleSheet(QString::fromUtf8("color: #ffeaa7;"));
+        song_start_time_label->setStyleSheet(QString::fromUtf8("color:#2d3436; \n"
+""));
 
         horizontalLayout_2->addWidget(song_start_time_label);
 
@@ -207,7 +209,8 @@ public:
         font4.setBold(false);
         font4.setKerning(false);
         song_end_time_label->setFont(font4);
-        song_end_time_label->setStyleSheet(QString::fromUtf8("color: #ffeaa7;"));
+        song_end_time_label->setStyleSheet(QString::fromUtf8("color:#2d3436; \n"
+""));
         song_end_time_label->setText(QString::fromUtf8("00:00"));
 
         horizontalLayout_2->addWidget(song_end_time_label);
@@ -333,7 +336,7 @@ public:
 "	height: 25px;\n"
 "	width: 25px;\n"
 "	border-radius: 10px;\n"
-"	background: #dfe6e9;\n"
+"	background: #2d3436;\n"
 "}"));
         volume_slider->setOrientation(Qt::Horizontal);
 

@@ -28,6 +28,16 @@ void MainWindow::_setup_ui()
     ui->repeat_button->setIcon(QIcon(QPixmap(":/buttons/images/drawnRepeatButton.png")));
     ui->mute_button->setIcon(QIcon(QPixmap(":/buttons/images/drawnVolumeButton.png")));
 
+    QSize play_button_size(40,40);
+    QSize control_button_size(35, 35);
+
+    ui->play_button->setIconSize(play_button_size);
+    ui->backward_button->setIconSize(control_button_size);
+    ui->forward_button->setIconSize(control_button_size);
+    ui->repeat_button->setIconSize(control_button_size);
+    ui->mute_button->setIconSize(control_button_size);
+
+
     //Developer Tools View:
     ui->producer_tool_view->setVisible(false);
 }
