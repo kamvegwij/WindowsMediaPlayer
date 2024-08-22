@@ -98,7 +98,12 @@ void MainWindow::on_volume_slider_valueChanged(int value)
 void MainWindow::songPlayingChanged(bool playing)
 {
     if (playing == false){
-        ui->play_button->setIcon(QIcon(QPixmap(":/buttons/images/drawnPlayButton.png")));
+        if (isRepeatable){
+            m_player->play();
+        }
+        else{
+            ui->play_button->setIcon(QIcon(QPixmap(":/buttons/images/drawnPlayButton.png")));
+        }
     }
     else{
         ui->play_button->setIcon(QIcon(QPixmap(":/buttons/images/drawnPauseButton.png")));
@@ -111,6 +116,7 @@ void MainWindow::on_play_button_clicked()
         m_player->pause();
     }
     else{
+        songStarted = true;
         m_player->play();
     }
 
@@ -149,7 +155,7 @@ void MainWindow::on_mute_button_clicked()
 
 void MainWindow::on_repeat_button_clicked()
 {
-
+    isRepeatable = !isRepeatable;
 }
 
 void MainWindow::on_radioButton_toggled(bool checked)

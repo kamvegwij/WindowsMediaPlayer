@@ -53,12 +53,16 @@ private:
     Ui::MainWindow *ui;
     QMediaPlayer *m_player;
     QAudioOutput *audioOutput;
+
     void updateDuration(qint64 duration);
     void songPlayingChanged(bool playing);
     void _setup_ui();
     void _setup_audio_settings();
+
     qint64 mDuration;
     bool developerToolsChecked; //
+    bool isRepeatable = false;
+    bool songStarted = false;
 
 };
 #endif // MAINWINDOW_H
